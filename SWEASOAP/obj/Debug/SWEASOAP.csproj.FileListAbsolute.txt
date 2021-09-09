@@ -1,7 +1,6 @@
 C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\SWEASOAP.exe.config
 C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\SWEASOAP.exe
 C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\SWEASOAP.pdb
-C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.csprojAssemblyReference.cache
 C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.MainForm.resources
 C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.Properties.Resources.resources
 C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.csproj.GenerateResource.cache
@@ -19,3 +18,4 @@ C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\Microsoft.Extensions.DependencyInjecti
 C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\VSProjects\SWEASOAP\SWEASOAP\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.csproj.CopyComplete
+C:\VSProjects\SWEASOAP\SWEASOAP\obj\Debug\SWEASOAP.csprojAssemblyReference.cache

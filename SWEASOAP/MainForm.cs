@@ -6,8 +6,17 @@ namespace SWEASOAP
 {
     public partial class MainForm : Form
     {
-        private ICurrencyConverter _CurrencyConverter;
+        private readonly ICurrencyConverter _CurrencyConverter;
         private IOrderedEnumerable<CurrencyInformation> _CurrencyInformation;
+
+        public ComboBox GetFromCurrency() { return FromCurrency; }
+        public ComboBox GetToCurrency() { return ToCurrency; }
+        public Label GetResultValue() { return ResultValue; }
+        public Label GetExchange() { return Exchange; }
+        public DateTimePicker GetDateTimePicker() { return dateTimePicker; }
+        public NumericUpDown GetInputValue() { return InputValue; }
+        public Button GetConvertButton() { return ConvertButton; }
+
         public MainForm(ICurrencyConverter currencyConverter)
         {
             InitializeComponent();
@@ -22,20 +31,30 @@ namespace SWEASOAP
             PopulateDropDowns();
         }
 
-        private void PopulateDropDowns()
+        public void PopulateDropDowns()
         {
             _CurrencyInformation = _CurrencyConverter.GetSupportedCurrencies().OrderBy(d => d.Description);
+            
+            // If no currenices are available, stop user fom pushing button 
+            if (_CurrencyInformation.Count() < 1)
+            {
+                ConvertButton.Enabled = false;
+                return;
+            }
+            
             FromCurrency.Items.AddRange(_CurrencyInformation.Select(d => d.Description).ToArray());
             ToCurrency.Items.AddRange(_CurrencyInformation.Select(d => d.Description).ToArray());
             FromCurrency.SelectedIndex = ToCurrency.SelectedIndex = 0;
         }
 
-        private void ConvertButton_Click(object sender, EventArgs e)
+        public void ConvertButton_Click(object sender, EventArgs e)
         {
             if (InvalidInputData())
             {
                 ResultValue.Text = "Ogiltig valuta";
                 FromCurrency.SelectedIndex = ToCurrency.SelectedIndex = 0;
+                Exchange.Text = "Kurs: -";
+                return;
             }
             var rate = _CurrencyConverter.GetConversionRate(dateTimePicker.Value, GetSelectedCurrencyId(FromCurrency), GetSelectedCurrencyId(ToCurrency));
             
